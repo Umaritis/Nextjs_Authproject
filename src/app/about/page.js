@@ -6,13 +6,7 @@ function Aboutpage(){
   const router = useRouter();
   const [isLoggedin, setIsLoggedIn] = useState(false);
   useEffect(()=>{
-    const user = localStorage.getItem("user");
-    if(!user){
-      router.push("/loginpage");
-    }
-    else{
-      setIsLoggedIn(true);
-    }
+    
   }, []);
   const handleLogout = ()=>{
     localStorage.removeItem("user");

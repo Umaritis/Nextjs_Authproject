@@ -11,7 +11,7 @@ function Homepage() {
     <div>
       
 
-      {/* Hero Section */}
+      {/* Hero Section - SHOULD BE A SEPARATE COMPONENT */}
       <div className="flex h-full">
         {/* left */}
         <div className="bg-[#41644A] h-screen font-extrabold font-serif flex items-center text-6xl text-justify pl-24 tracking-wide w-[70%]">
