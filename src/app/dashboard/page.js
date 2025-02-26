@@ -16,7 +16,7 @@ function Dashboard() {
 
       <Button className="bg-[#F1F0E9] text-[#41644A] p-6 ml-16 rounded-3xl mt-6">
         <Link href="/about">
-          Contact Page
+          About Us
         </Link>
       </Button>
     </div>

@@ -1,10 +1,10 @@
 "use client";
 import { z } from "zod";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation"; // Import Next.js router
+import { useRouter } from "next/navigation";
 
 import {
   Form,
@@ -16,6 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Router } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().min(4, "Email must be at least 4 characters").max(50),
@@ -32,6 +33,17 @@ function LoginPage() {
     mode: "onChange", 
   });
 
+  const [isloggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (!user) {
+      router.push("/loginpage"); 
+    } else {
+      router.push("/dashboard"); 
+    }
+  }, [router]);
+
 
 function onSubmit(values) {
   const { email, password } = values;
@@ -45,7 +57,7 @@ function onSubmit(values) {
     window.location.href="/dashboard"
   } else {
     console.log("Invalid credentials");
-    alert("Invalid email or password!"); // Show an error message
+    alert("Invalid email or password!");
   }
 }
 
